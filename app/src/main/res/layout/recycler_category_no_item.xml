@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <RelativeLayout
+        android:id="@+id/shape"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp">
+
+        <View
+            android:id="@+id/img"
+            android:layout_width="0dp"
+            android:layout_height="65dp"
+            android:background="@drawable/bg_edit_img"/>
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:weightSum="3"
+            android:layout_toRightOf="@id/img"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="20dp">
+
+            <RelativeLayout
+                android:id="@+id/recycler_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/img"
+                android:layout_alignTop="@id/img"
+                android:layout_weight="1">
+
+                <TextView
+                    android:id="@+id/name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="제품명 : "
+                    android:textStyle="bold"
+                    android:textSize="12dp"
+                    />
+
+                <TextView
+                    android:id="@+id/productNm"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="하이드아웃"
+                    android:textStyle="bold"
+                    android:textSize="12dp"
+                    android:layout_toRightOf="@id/name"/>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/recycler_company"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/recycler_name"
+                android:layout_toRightOf="@id/img"
+                android:layout_weight="1">
+
+                <TextView
+                    android:id="@+id/company"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="제조사 : "
+                    android:textStyle="bold"
+                    android:textSize="12dp"/>
+
+                <TextView
+                    android:id="@+id/makr"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="위드컴퍼니"
+                    android:textStyle="bold"
+                    android:textSize="12dp"
+                    android:layout_toRightOf="@id/company"/>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/recycler_company"
+                android:layout_toRightOf="@id/img"
+                android:layout_weight="1">
+
+                <TextView
+                    android:id="@+id/day"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="리콜공표일 : "
+                    android:textStyle="bold"
+                    android:textSize="12dp"/>
+
+                <TextView
+                    android:id="@+id/recallPublictBgnde"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="20021-02-03"
+                    android:textStyle="bold"
+                    android:textSize="12dp"
+                    android:layout_toRightOf="@id/day"/>
+
+            </RelativeLayout>
+
+
+        </LinearLayout>
+
+        <RelativeLayout
+            android:id="@+id/recycler_eye"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignBottom="@id/img">
+
+            <ImageView
+                android:id="@+id/eye"
+                android:layout_width="15dp"
+                android:layout_height="10dp"
+
+                android:layout_marginTop="2dp"/>
+
+            <TextView
+                android:id="@+id/lookNum"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="000"
+                android:textSize="9sp"
+                android:layout_toRightOf="@id/eye"
+                android:layout_marginLeft="5dp"/>
+
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+    <View
+        android:id="@+id/line_bottom"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#D1C9C9"
+        android:layout_below="@id/shape"
+        android:layout_marginTop="5dp"/>
+
+
+
+
+</RelativeLayout>
