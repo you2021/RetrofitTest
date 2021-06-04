@@ -31,8 +31,7 @@ public class MainActivity extends AppCompatActivity {
     public void clickBtn(View view) {
 
 //        Retrofit retrofit = RetrofitHelper.getRetrofitInstanceGson();
-        Retrofit retrofit = RetrofitHelper.getRetrofitInstanceScalars();
-        RetrofitService service = retrofit.create(RetrofitService.class);
+
 
 //        Call<ArrayList<Item>> call= service.arrayList(0);
 //        call.enqueue(new Callback<ArrayList<Item>>() {
@@ -50,22 +49,36 @@ public class MainActivity extends AppCompatActivity {
 //            }
 //        });
 
-        Call<String> call = service.getJsonString(0);
-        call.enqueue(new Callback<String>() {
+        Thread t = new Thread(){
             @Override
-            public void onResponse(Call<String> call, Response<String> response) {
-                String s = response.body();
-                tv.setText(s);
-                Toast.makeText(MainActivity.this, "성공", Toast.LENGTH_SHORT).show();
-            }
+            public void run() {
+                super.run();
 
-            @Override
-            public void onFailure(Call<String> call, Throwable t) {
-                Log.e("Log",t.getMessage());
-                Log.i("log", t.getMessage());
-                tv.setText("error : "+t.getMessage());
+                Retrofit retrofit = RetrofitHelper.getRetrofitInstanceScalars();
+                RetrofitService service = retrofit.create(RetrofitService.class);
+
+                Call<String> call = service.getJsonString(20);
+                call.enqueue(new Callback<String>() {
+                    @Override
+                    public void onResponse(Call<String> call, Response<String> response) {
+                        String s = response.body();
+                        tv.setText(s);
+                        Toast.makeText(MainActivity.this, "성공", Toast.LENGTH_SHORT).show();
+                    }
+
+                    @Override
+                    public void onFailure(Call<String> call, Throwable t) {
+                        Log.e("Log",t.getMessage());
+                        Log.i("log", t.getMessage());
+                        tv.setText("error : "+t.getMessage());
+                    }
+                });
+
             }
-        });
+        };
+        t.start();
+
+
 
 
 
